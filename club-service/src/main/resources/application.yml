@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: club-service
+  # Datasource postgres
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 5234
+# Configuracion del servidor embebido
+server:
+  port: 8088
+  servlet:
+    context-path: /club-service
+
