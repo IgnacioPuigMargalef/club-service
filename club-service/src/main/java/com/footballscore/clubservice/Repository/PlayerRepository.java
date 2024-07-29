@@ -21,6 +21,7 @@ public class PlayerRepository {
     private final static Logger LOGGER = (Logger) LoggerFactory.getLogger(PlayerRepository.class);
 
     public List<PlayerEntity> getPlayersByTeamId(Integer teamId) {
+        LOGGER.info("PlayerRepository - Begin getPlayersByTeamId, searching by [{}]", teamId);
         final MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("team_id", teamId);
         List<PlayerEntity> players = jdbcTemplate.query(Queries.GET_PLAYERS_BY_TEAM_ID, params, playerRowMapper);
