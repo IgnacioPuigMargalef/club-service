@@ -18,7 +18,7 @@ public class PlayerRowMapper implements RowMapper<PlayerEntity> {
                 .name(rs.getString("name"))
                 .surname(rs.getString("surname"))
                 .photo(rs.getBytes("photo"))
-                .birth_country(rs.getTimestamp("birth_country").toLocalDateTime().toLocalDate())
+                .birth_country(rs.getString("birth_country"))
                 .birth_date(rs.getTimestamp("birth_date").toLocalDateTime().toLocalDate())
                 .team_id(rs.getInt("team_id"))
                 .build();

@@ -21,12 +21,13 @@ public class TeamRepository {
     private static final Logger LOGGER = (Logger)LoggerFactory.getLogger(TeamRepository.class);
 
     public TeamEntity getTeamById(final Integer id) {
+        LOGGER.info("TeamRepository - Begin getTeamById, searching by [{}]", id);
         try {
             final MapSqlParameterSource namedParameters = new MapSqlParameterSource();
             namedParameters.addValue("id", id);
             return jdbcTemplate.queryForObject(Queries.GET_TEAM_BY_ID, namedParameters, teamRowMapper);
         } catch (EmptyResultDataAccessException e) {
-            LOGGER.info("Team with id [{}] not found", id);
+            LOGGER.warn("Team with id [{}] not found", id);
             throw new NotFoundTeamException();
         }
     }

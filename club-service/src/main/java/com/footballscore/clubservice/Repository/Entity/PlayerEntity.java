@@ -10,7 +10,7 @@ public record PlayerEntity(
         String name,
         String surname,
         LocalDate birth_date,
-        LocalDate birth_country,
+        String birth_country,
         byte[] photo,
         Integer team_id
 ) {
